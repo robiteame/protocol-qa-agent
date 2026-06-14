@@ -246,7 +246,6 @@ def load_tree(doc_id: str) -> dict: ...
 全部用 `pathlib.Path`，注意文件名清洗（防路径穿越：只取 basename，过滤 `..`）。
 
 ## 6. ingestion — 入库流水线
-
 ### 6.1 `parsers/base.py`
 
 ```python

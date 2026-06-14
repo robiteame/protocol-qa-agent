@@ -10,12 +10,12 @@
 **目标**：跑起来一个空壳 FastAPI，配置能从 .env 读取。
 
 任务：
-- [ ] 创建 venv，安装：`fastapi uvicorn pydantic-settings httpx python-docx openpyxl python-pptx chromadb jieba python-multipart`
-- [ ] 按 03 章目录结构建空目录与空 `__init__.py`
-- [ ] 写 `core/config.py`（Settings 类）+ `.env.example`
-- [ ] 写 `core/logging.py`（logging.basicConfig，格式带时间/模块名/级别）
-- [ ] 写 `api/main.py`：空 app + `/api/v1/health` 返回 `{"status":"ok"}`
-- [ ] `uvicorn src.api.main:app --reload` 启动成功
+- [x] 创建 venv，安装：`fastapi uvicorn pydantic-settings httpx python-docx openpyxl python-pptx chromadb jieba python-multipart`
+- [x] 按 03 章目录结构建空目录与空 `__init__.py`
+- [x] 写 `core/config.py`（Settings 类）+ `.env.example`
+- [x] 写 `core/logging.py`（logging.basicConfig，格式带时间/模块名/级别）
+- [x] 写 `api/main.py`：空 app + `/api/v1/health` 返回 `{"status":"ok"}`
+- [x] `uvicorn src.api.main:app --reload` 启动成功
 
 ⚠ 包导入路径：决定好用 `src` 布局后，统一以项目根为工作目录、`src.xxx` 绝对导入；遇到 `ModuleNotFoundError` 先理解 sys.path 而不是乱加 `sys.path.append`。
 
@@ -28,10 +28,10 @@
 **目标**：一套接口，两个后端（OpenAI 兼容 / Ollama），可配置切换。
 
 任务：
-- [ ] `scripts/check_provider.py`：先用 httpx **裸调**两家的 chat 和 embedding 接口，打印原始响应 JSON（理解协议差异，见 03 章 4.2 对照表）
-- [ ] `providers/base.py`：两个 ABC
-- [ ] `core/errors.py`：异常树
-- [ ] 写一个重试装饰器（指数退避：1s/2s/4s，重试 3 次后抛 ProviderError）
+- [x] `scripts/check_provider.py`：先用 httpx **裸调**两家的 chat 和 embedding 接口，打印原始响应 JSON（理解协议差异，见 03 章 4.2 对照表）
+- [x] `providers/base.py`：两个 ABC
+- [x] `core/errors.py`：异常树
+- [x] 写一个重试装饰器（指数退避：1s/2s/4s，重试 3 次后抛 ProviderError）
 - [ ] `openai_compat.py` / `ollama.py` 两个实现 + `factory.py`
 - [ ] 把 check_provider.py 改为走适配层：切换 .env 的 `LLM_PROVIDER` 验证两边都通
 
