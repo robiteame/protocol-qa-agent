@@ -9,6 +9,7 @@ import json
 import httpx
 from core.config import Settings
 from providers.openai_compat import OpenAICompat
+from providers.factory import create_chat_provider,create_embedding_provider
 
 settings = Settings()
 
@@ -36,7 +37,8 @@ def check_provider():
     #     print(f"An error occurred while trying to connect to the provider: {e}")
     message = []
     message.append({"role": "user", "content": "你好"})
-    print(OpenAICompat().chat(message))
+    result = create_chat_provider(settings).chat(message)
+    print(result)
     return
 def check_provider_stream():
     try:
@@ -66,20 +68,24 @@ def check_provider_stream():
         return   
 
 def check_embed_provider():
-    url = embed_base_url+"/api/embeddings";
-    print(f"Connecting to: {url}")
-    try:
-        response = httpx.post(
-            url,
-            json={"model": embed_model, "prompt": "测试这个向量模型是否可用"},
-        )
-        print(f"Status: {response.status_code}")
-        print(f"Response: {response.json()}")
-    except httpx.RequestError as e:
-        print(f"An error occurred while trying to connect to the provider: {e}")
-        return          
+    # url = embed_base_url+"/api/embeddings";
+    # print(f"Connecting to: {url}")
+    # try:
+    #     response = httpx.post(
+    #         url,
+    #         json={"model": embed_model, "prompt": "测试这个向量模型是否可用"},
+    #     )
+    #     print(f"Status: {response.status_code}")
+    #     print(f"Response: {response.json()}")
+    # except httpx.RequestError as e:
+    #     print(f"An error occurred while trying to connect to the provider: {e}")
+    #     return        
+    message="测试这个向量模型是否可用"
+    result = create_embedding_provider(settings).embed([message])
+    print(result)
+    return 
 
 
 if __name__ == "__main__":
     print("Checking provider...")
-    check_provider()
+    check_embed_provider()

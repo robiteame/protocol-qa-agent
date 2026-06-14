@@ -2,14 +2,13 @@ from providers.base import ChatProvider, retry
 import httpx
 import json
 from typing import Iterator
-from core.config import Settings
 
 class OpenAICompat(ChatProvider):
-    def __init__(self):
-        setting = Settings()
-        self.base_url = setting.llm_base_url
-        self.api_key = setting.llm_api_key
-        self.model = setting.llm_model
+    def __init__(self,llm_provider, llm_base_url, llm_api_key, llm_model):
+        self.provider = llm_provider
+        self.base_url = llm_base_url
+        self.api_key = llm_api_key
+        self.model = llm_model
 
     @retry(num_times=3, delay=1)
     def chat(self, messages: list[dict], *, temperature: float = 0.2,

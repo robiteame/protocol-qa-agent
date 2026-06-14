@@ -18,6 +18,7 @@ def retry(num_times=3, delay=1):
                         raise ProviderError(e)
                     delay *= 2
                     time.sleep(delay)
+                    print(f"第{i + 1}次重试 {func.__name__}方法 在 {delay} 秒后重试...")
         return wrapper
     return decorator
 
