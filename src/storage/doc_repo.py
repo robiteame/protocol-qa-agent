@@ -1,5 +1,5 @@
 from .database import BaseRepository
-from .model.DocRecord import DocRecord, DocStatus
+from ..core.models import DocRecord, DocStatus
 from fastapi import UploadFile
 from .files import save_upload, compute_hash
 from datetime import datetime

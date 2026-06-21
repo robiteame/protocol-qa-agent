@@ -46,11 +46,11 @@
 **目标**：文档能上传、落盘、入库（仅元数据），能列表/查询/删除。
 
 任务：
-- [ ] `storage/database.py`：建表 DDL（04 章 Schema 的 documents 表即可，其余表后补）
-- [ ] `storage/files.py`：落盘 + sha256
-- [ ] `storage/doc_repo.py`：insert / get / list / find_by_hash / update_status
-- [ ] `api/schemas.py` + `routes_documents.py`：POST/GET/DELETE /documents（此阶段 status 停在 uploaded）
-- [ ] 后缀与大小校验、文件名清洗、重复哈希提示
+- [x] `storage/database.py`：建表 DDL（04 章 Schema 的 documents 表即可，其余表后补）
+- [x] `storage/files.py`：落盘 + sha256
+- [x] `storage/doc_repo.py`：insert / get / list / find_by_hash / update_status
+- [x] `api/schemas.py` + `routes_documents.py`：POST/GET/DELETE /documents（此阶段 status 停在 uploaded）
+- [x] 后缀与大小校验、文件名清洗、重复哈希提示
 
 ⚠ FastAPI 的 `UploadFile` 读取是 async 的（`await file.read()`）——路由函数声明为 `async def`，但内部调用你的同步 storage 函数没问题。
 

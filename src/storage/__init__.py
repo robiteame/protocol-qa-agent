@@ -1,5 +1,5 @@
 from .database import get_db, init_db, tx, BaseRepository
-from .model.DocRecord import DocStatus, DocRecord
+from ..core.models import DocStatus, DocRecord
 from .doc_repo import DocRepo
 from .files import save_upload
 
