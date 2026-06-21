@@ -32,8 +32,8 @@
 - [x] `providers/base.py`：两个 ABC
 - [x] `core/errors.py`：异常树
 - [x] 写一个重试装饰器（指数退避：1s/2s/4s，重试 3 次后抛 ProviderError）
-- [ ] `openai_compat.py` / `ollama.py` 两个实现 + `factory.py`
-- [ ] 把 check_provider.py 改为走适配层：切换 .env 的 `LLM_PROVIDER` 验证两边都通
+- [x] `openai_compat.py` / `ollama.py` 两个实现 + `factory.py`
+- [x] 把 check_provider.py 改为走适配层：切换 .env 的 `LLM_PROVIDER` 验证两边都通
 
 ⚠ json_mode 的差异处理；⚠ 装饰器要保留原函数签名（`functools.wraps`）。
 

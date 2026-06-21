@@ -1,0 +1,6 @@
+[project]
+name = "protocol-qa-agent"
+version = "0.1.0"
+dependencies = [
+    "sqlmodel>=0.0.38",
+]
