@@ -37,8 +37,8 @@ class IRElement:
 class Chunk(BaseModel):
     doc_id: str
     chunk_id: str = Field(default_factory=lambda: str(uuid4()))
-    section_path: str
-    element_kinds: list[str]
-    text: str
-    token_count: int
-    seq: int
+    section_path: str #chunk 所在的元素路径
+    element_kinds: list[str] # chunk 涉及的元素种类
+    text: str # chunk 的文本
+    token_count: int # chunk 的 token 数量
+    seq: int # chunk 在 section 中的顺序
